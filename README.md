@@ -2,7 +2,9 @@
 
 Transient heat conduction on a rectangular plate. Left edge is held at 100°, right edge at 0°, top and bottom are insulated. The solution evolves from a uniform cold plate toward a linear steady-state temperature profile.
 
-![Heat conduction animation](animation.mp4)
+<video src="https://github.com/michaelsong5713/2dheatconduction/raw/main/animation.mp4" controls muted loop width="100%"></video>
+
+> If the player above doesn't load, [download/view `animation.mp4` directly](https://github.com/michaelsong5713/2dheatconduction/raw/main/animation.mp4).
 
 ## Dependencies
 
@@ -32,13 +34,3 @@ Output: `heat_ex.xdmf` + `heat_ex.h5`. Open `heat_ex.xdmf` in [ParaView](https:/
 | `manufactured_solution.py` | Method of manufactured solutions — verifies the weak form against a known exact answer |
 | `run.bat` | Shortcut: `.\run` instead of typing the full docker command |
 
-## Verification
-
-Two verification scripts are included. Both run the same way as the main script:
-
-```
-docker run --rm -ti -v ${PWD}:/work -w /work dolfinx/dolfinx:stable python3 convergence_test.py
-docker run --rm -ti -v ${PWD}:/work -w /work dolfinx/dolfinx:stable python3 manufactured_solution.py
-```
-
-`convergence_test.py` checks that the L2 error halves at rate ~2.0 as the mesh refines, which is the expected behavior for P1 elements. `manufactured_solution.py` solves a problem with a known exact solution and reports how closely the solver matches it.

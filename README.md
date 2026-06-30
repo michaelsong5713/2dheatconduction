@@ -30,7 +30,4 @@ Output: `heat_ex.xdmf` + `heat_ex.h5`. Open `heat_ex.xdmf` in [ParaView](https:/
 |------|-------------|
 | `heat_ex.py` | Main simulation script |
 | `plate.geo` | Gmsh geometry and mesh definition |
-| `convergence_test.py` | O(h²) convergence verification using a structured mesh |
-| `manufactured_solution.py` | Method of manufactured solutions — verifies the weak form against a known exact answer |
-| `run.bat` | Shortcut: `.\run` instead of typing the full docker command |
 
